@@ -1,0 +1,9 @@
+public class TransactionProcessor {
+    public void executeDeposit(IAccount account, double amount) {
+        account.deposit(amount);
+    }
+
+    public void executeWithdraw(IAccount account, double amount) {
+        account.withdraw(amount);
+    }
+}
