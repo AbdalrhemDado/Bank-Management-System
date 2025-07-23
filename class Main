@@ -1,0 +1,16 @@
+public class Main {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+
+        Customer customer = bank.registerCustomer("Abdalrahem");
+        IAccount account1 = bank.openAccount(customer, "saving");
+        IAccount account2 = bank.openAccount(customer, "current");
+
+        bank.performTransaction(((SavingAccount)account1).getAccountNumber(), 1000, "deposit");
+        bank.performTransaction(((CurrentAccount)account2).getAccountNumber(), 500, "deposit");
+        bank.performTransaction(((SavingAccount)account1).getAccountNumber(), 300, "withdraw");
+
+        System.out.println("Saving balance: " + bank.getAccountBalance(((SavingAccount)account1).getAccountNumber()));
+        System.out.println("Current balance: " + bank.getAccountBalance(((CurrentAccount)account2).getAccountNumber()));
+    }
+}
