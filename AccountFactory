@@ -1,0 +1,12 @@
+public class AccountFactory {
+
+    public static IAccount createAccount(String type, int accountNumber) {
+        if (type.equalsIgnoreCase("saving")) {
+            return new SavingAccount(accountNumber);
+        } else if (type.equalsIgnoreCase("current")) {
+            return new CurrentAccount(accountNumber);
+        }
+
+        throw new IllegalArgumentException("Invalid account type: " + type);
+    }
+}
